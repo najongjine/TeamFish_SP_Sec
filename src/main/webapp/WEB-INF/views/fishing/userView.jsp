@@ -108,8 +108,10 @@ $(function() {
 			$.ajax({
 				url:"${rootPath}/fishUserSea/comments",
 				data:formData,
-				//data:{formData,"${_csrf.parameterName}":"${_csrf.token}"},
 				type:"POST",
+				beforeSend:function(ax){
+					ax.setRequestHeader("${_csrf.headerName}","${_csrf.token}")
+				},
 				success:function(result){
 					$(".comments").html("")
 					$(".comments").html(result)
