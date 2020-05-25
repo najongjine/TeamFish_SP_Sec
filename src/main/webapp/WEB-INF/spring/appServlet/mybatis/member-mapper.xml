@@ -26,6 +26,8 @@
 		`phone` = #{phone},
 		`address` = #{address},
 		`profile_pic`=#{profile_pic},
+		`u_date` = #{u_date},
+		`point` = #{point},
 		`enabled` = #{enabled}
 		WHERE `id` = #{id}
 

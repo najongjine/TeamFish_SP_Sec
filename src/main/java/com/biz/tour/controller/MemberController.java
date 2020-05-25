@@ -1,8 +1,8 @@
 package com.biz.tour.controller;
 
-import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -79,7 +79,6 @@ public class MemberController {
 	@RequestMapping(value = "/email_token_check",method=RequestMethod.POST)
 	public String email_token_check(@RequestParam("secret_id") String username,
 			@RequestParam("secret_key") String secret_key,@RequestParam("secret_value") String secret_value) {
-		log.debug("## entered email token check: "+username+","+secret_key+","+secret_value);
 		boolean bKey=memService.email_token_ok(username,secret_key,secret_value);
 		//jsp로 내려보낸 인증코드(token)은 암호화 시킨거고, 메일로 보낸건 암호화 안시킨 인증코드(token)임.
 		if(bKey) return "OK";
@@ -102,36 +101,15 @@ public class MemberController {
 		model.addAttribute("memberVO", memberVO);
 		return "member/login";
 	}
-	@RequestMapping(value = "/login",method=RequestMethod.POST)
-	public String login(@Valid @ModelAttribute("memberVO") MemberVO memberVO,BindingResult result,HttpSession session,Model model,SessionStatus sstatus) {
-		if(result.hasErrors()) {
-			return "member/login";
-		}
-		memberVO=memService.checkLogin(memberVO);
-		
-		//로그인시 포인트 적립. 서브테이블에 username 있으면 포인트 적립 안함
-		memService.raisePoint(memberVO);
-		
-		if(memberVO==null) return "member/loginFail";
-		session.setAttribute("U_NAME", memberVO.getUsername());
-		sstatus.setComplete();// 로그인 완료 후 session에 남아있는 id,비번 정보 초기화
-		return "redirect:/";
-	}
-	@RequestMapping(value = "/logout",method=RequestMethod.GET)
-	public String logout(HttpSession session,SessionStatus sstatus) {
-		session.removeAttribute("U_NAME");
-		sstatus.setComplete();// 로그아웃 후 session에 남아있는 id,비번 정보 초기화
-		return "redirect:/";
-	}
-	@RequestMapping(value = "/delete",method=RequestMethod.GET)
-	public String delete(String u_name,HttpSession session) {
-		int ret=memService.delete(u_name);
-		return "redirect:/";
-	}
 	
 	// email로 ID찾기,비번 재설정을 하기위한 email 입력 페이지
 	@RequestMapping(value="/findID",method=RequestMethod.GET)
 	public String findID(@ModelAttribute("memberVO") MemberVO memberVO) {
+		memberVO=(MemberVO) SecurityContextHolder
+				.getContext()
+				.getAuthentication()
+				.getPrincipal();
+		if(memberVO==null ) return null;
 		//memService.findByIdresetpass(email);
 		return "member/repass_email";
 	}

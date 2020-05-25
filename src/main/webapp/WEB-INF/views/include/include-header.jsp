@@ -1,12 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <c:set var="rootPath" value="${pageContext.request.contextPath }" />
 
 <header class="jumbotron text-center">
 	<a href="${rootPath }/"><h1>Korea Fishing</h1></a>
 	<p>Welcome to Korea Fishing</p>
 </header>
+<script>
+$(function() {
+	$(document).on("click","a.logout",function(){
+		if(confirm("logout??")){
+			$.post("${rootPath}/logout",{${_csrf.parameterName}:"${_csrf.token}"},function(){
+				document.location.replace("${rootPath}/")
+			})
+		}
+	})
+})
+</script>
 <nav>
 <ul class="nav nav-pills nav-justified">
 <li class="nav-item">
@@ -27,7 +39,7 @@
 	</a>
 </li>
 
-<c:if test="${U_NAME==null }">
+<sec:authorize access="isAnonymous()">
 <li class="nav-item">
 <a href="${rootPath }/member/login">Login</a>
 </li>
@@ -35,19 +47,21 @@
 <li class="nav-item">
 <a href="${rootPath }/member/register">Sign Up</a>
 </li>
-</c:if>
+</sec:authorize>
 
-<c:if test="${U_NAME!=null }">
+<sec:authorize access="isAuthenticated()">
 <li class="nav-item">
 <a href="${rootPath}/mypage/view">
-${U_NAME }(마이페이지)
+(마이페이지)
 </a>
 </li>
 
+<form:form>
 <li class="nav-item">
-<a href="${rootPath }/member/logout">
-${U_NAME }(click to logout)</a>
+<a href="javascript:void(0)" class="logout">
+(click to logout)</a>
 </li>
-</c:if>
+</form:form>
+</sec:authorize>
 </ul>
 </nav>

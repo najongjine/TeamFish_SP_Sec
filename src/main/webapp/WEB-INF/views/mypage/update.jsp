@@ -41,18 +41,15 @@ margin-top: 10px;
 <h2>회원정보 수정</h2>
 	<div class="my-info">
 		<form:form action="?${_csrf.parameterName}=${_csrf.token }" modelAttribute="memberVO" enctype="multipart/form-data" method="POST" class="list-group">
-		
+			<form:input path="id" type="hidden" readonly="true" class="my-text"/>
+			<form:input path="point" type="hidden" readonly="true" class="my-text"/>
+			<form:input path="u_date" type="hidden" readonly="true" class="my-text"/>
+			<form:input path="profile_pic" type="hidden" readonly="true" class="my-text"/>
+			
 			<div class="list-group-item list-group-item-primary">
 			<label for="username">ID : </label>
 			<form:input path="username" readonly="true" class="my-text"/>
 			</div>
-			
-			<!-- 
-			<div class="list-group-item list-group-item-primary">
-			<label for="u_password">비밀번호 : </label>
-			<form:input path="u_password" readonly="true" class="my-text"/>
-			</div>
-			 -->
 			
 			<div class="list-group-item list-group-item-info">
 			<label for="email">E-mail : </label>

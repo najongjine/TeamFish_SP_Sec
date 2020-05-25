@@ -109,6 +109,7 @@ public class FishUserWaterController {
 		return "fishing/userInput";
 	}
 
+	@Secured(value = {"ROLE_ADMIN","ROLE_USER"})
 	@RequestMapping(value = "/waterInsert", method = RequestMethod.POST)
 	public String insert(FishUserWaterVO userVO, MultipartHttpServletRequest uploaded_files,
 			Model model) {

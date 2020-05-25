@@ -34,7 +34,7 @@
 		<security:intercept-url pattern="/**"
 			access="permitAll()" />
 			
-		<security:form-login login-page="/user/login"
+		<security:form-login login-page="/member/login"
 			login-processing-url="" default-target-url=""
 			username-parameter="username" password-parameter="password" />
 		<security:logout logout-url="/logout"

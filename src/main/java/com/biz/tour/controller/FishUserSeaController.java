@@ -109,6 +109,7 @@ public class FishUserSeaController {
 		return "fishing/userInput";
 	}
 
+	@Secured(value = {"ROLE_ADMIN","ROLE_USER"})
 	@RequestMapping(value = "/seaInsert", method = RequestMethod.POST)
 	public String insert(FishUserSeaVO userVO, MultipartHttpServletRequest uploaded_files,
 			Model model) {

@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.Select;
 import com.biz.tour.domain.member.MemberVO;
 
 public interface MemberDao {
-	@Select("select * from tbl_members where u_id=#{id}")
+	@Select("select * from tbl_members where id=#{id}")
 	public MemberVO findById(long id);
 	
 	@Select("select * from tbl_members where username=#{username}")
