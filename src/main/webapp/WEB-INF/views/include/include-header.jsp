@@ -50,6 +50,7 @@ $(function() {
 </sec:authorize>
 
 <sec:authorize access="isAuthenticated()">
+<li><a href="${rootPath}/chat">실시간채팅</a></li>
 <li class="nav-item">
 <a href="${rootPath}/mypage/view">
 (마이페이지)

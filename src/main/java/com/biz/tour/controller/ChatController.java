@@ -2,6 +2,7 @@ package com.biz.tour.controller;
 
 import javax.servlet.http.HttpSession;
 
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +17,7 @@ import lombok.extern.slf4j.Slf4j;
 @Controller
 public class ChatController {
 	
+	@Secured(value = {"ROLE_ADMIN","ROLE_USER"})
 	@RequestMapping(value = "",method=RequestMethod.GET)
 	public String chat(HttpSession httpSession,Model model) {
 		String u_name=(String) httpSession.getAttribute("U_NAME");
