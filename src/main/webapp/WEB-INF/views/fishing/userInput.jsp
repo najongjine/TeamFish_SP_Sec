@@ -21,7 +21,7 @@
 	<section>
 		<form:form action="?${_csrf.parameterName}=${_csrf.token }" method="post" enctype="multipart/form-data" modelAttribute="userVO">
 			<p>
-				<b>uf_username: ${userVO.uf_id }</b> <form:input path="uf_id" type="hidden"/>
+				<form:input path="uf_id" type="hidden"/>
 			</p>
 			<p>
 				<b>uf_username: ${userVO.uf_username }</b> <form:input path="uf_username" type="hidden"/>

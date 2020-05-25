@@ -60,6 +60,7 @@ $(document).ready(function() {
 </script>
 
 		<form action="?${_csrf.parameterName}=${_csrf.token }" class="replyreply">
+		<input name="${_csrf.parameterName }" value="${_csrf.token }" type="hidden">
 			ufc_pid:<input name="ufc_pid" value="${vo.ufc_pid }" type="readonly">
 			ufc_fk:<input name="ufc_fk" value="${vo.ufc_fk }" type="readonly">
 			<p>
