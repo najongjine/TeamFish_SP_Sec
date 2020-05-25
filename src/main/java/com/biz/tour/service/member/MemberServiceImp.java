@@ -90,7 +90,7 @@ public class MemberServiceImp implements MemberService {
 			String strUsername = PbeEncryptor.getDecrypt(username);
 			MemberVO memberVO = memDao.findByUName(strUsername);
 			memberVO.setEnabled(true);
-			update(memberVO);
+			memDao.update(memberVO);
 		}
 		return bKey;
 	}
