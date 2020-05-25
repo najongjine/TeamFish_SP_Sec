@@ -22,7 +22,10 @@ public class MarineLifeAPIController {
 	
 private final MarineLifeAPIService animalService;
 
-
+@RequestMapping(value="/test", method=RequestMethod.GET)
+public String testMarine() {
+	return "/fishing/marine_detail";
+}
 
 
 
