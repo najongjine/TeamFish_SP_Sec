@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
@@ -22,12 +23,16 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @RequiredArgsConstructor
 @RequestMapping(value = "/mypage")
+@SessionAttributes("memberVO")
 public class MyPageController {
 	private final MyPageService mypageService;
 	private final MemberService memberService;
 	private final FileUploadToServerService fUploadService;
 	
-
+	@ModelAttribute("memberVO")
+	public MemberVO makeMemVO() {
+		return new MemberVO();
+	}
 	
 	@Secured(value = {"ROLE_ADMIN","ROLE_USER"})
 	@RequestMapping(value = "/view",method=RequestMethod.GET)
@@ -109,8 +114,8 @@ public class MyPageController {
 	// 마이페이지에서 비밀번호 변경 페이지
 	@Secured(value = {"ROLE_ADMIN","ROLE_USER"})
 	@RequestMapping(value = "/changepassword",method=RequestMethod.GET)
-	public String changePassword() {
-		MemberVO memberVO=(MemberVO) SecurityContextHolder
+	public String changePassword(MemberVO memberVO) {
+		memberVO=(MemberVO) SecurityContextHolder
 				.getContext()
 				.getAuthentication()
 				.getPrincipal();
