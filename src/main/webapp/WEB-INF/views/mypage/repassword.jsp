@@ -36,15 +36,9 @@ margin-top: 10px;
 <script>
 $(document).ready(function() {
 	$(document).on("click","#changePassBtn",function(){
-		let username=$("#username").val()
 		let password=$("#password").val()
 		let re_password=$("#re_password").val()
 		
-		if(username==""){
-			alert("아이디를 입력하세요")
-			username.focus()
-			return false
-		}
 		if(password==""){
 			alert("비밀번호를 입력하세요")
 			password.focus()
