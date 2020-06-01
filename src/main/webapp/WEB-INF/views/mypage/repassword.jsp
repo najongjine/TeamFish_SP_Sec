@@ -35,27 +35,27 @@ margin-top: 10px;
 </head>
 <script>
 $(document).ready(function() {
-	$(document).on("click","#btn-join",function(){
-		let username=$("#username")
-		let password=$("#password")
-		let re_password=$("#re_password")
+	$(document).on("click","#changePassBtn",function(){
+		let username=$("#username").val()
+		let password=$("#password").val()
+		let re_password=$("#re_password").val()
 		
-		if(username.val()==""){
+		if(username==""){
 			alert("아이디를 입력하세요")
 			username.focus()
 			return false
 		}
-		if(password.val()==""){
+		if(password==""){
 			alert("비밀번호를 입력하세요")
 			password.focus()
 			return false
 		}
-		if(re_password.val()==""){
+		if(re_password==""){
 			alert("비밀번호 재입력을 입력하세요")
 			re_password.focus()
 			return false
 		}
-		if(password.val()!=re_password.val()){
+		if(password!=re_password){
 			alert("비밀번호와 비밀번호 확인이 다릅니다")
 			password.focus()
 			return false
@@ -84,7 +84,7 @@ $(document).ready(function() {
 			<input id="re_password" name="re_password" placeholder="비밀번호 재입력" class="my-text"/>
 			</div>
 			
-			<button class="btn btn-success">비밀번호 변경</button>
+			<button id="changePassBtn" type="button" class="btn btn-success">비밀번호 변경</button>
 			
 		</form:form>
 	</div>
