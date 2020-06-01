@@ -65,7 +65,7 @@ cursor: pointer;
 			<li class="page-item" data-page="${PAGE.nextPageNo}">&lt;</li> 
 
 			<c:forEach begin="${PAGE.startPageNo }" end="${PAGE.endPageNo }" var="page">
-				<li data-page="${page }" class="page-item" <c:if test="${page==currentPageNo }">active</c:if>">
+				<li data-page="${page }" class="page-item <c:if test="${page==currentPageNo }">active</c:if>">
 					${page }</li>
 			</c:forEach>
 			
