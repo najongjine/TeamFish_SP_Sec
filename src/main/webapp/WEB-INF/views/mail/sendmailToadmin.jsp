@@ -15,20 +15,49 @@
 	$("#uf_text").val(text)
 })*/
 </script>
+
+
+
+<style>
+
+
+.sendToAdminBoxSection{
+
+	display:table;
+	margin: 10% auto;
+	    border: 2px solid black;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.allInputBoxDiv{
+	float:right;
+}
+
+.sendToAdminTitle{
+	text-align: center;
+	text-decoration: underline;
+}
+</style>
+
 </head>
 <body>
 	<%@ include file="/WEB-INF/views/include/include-header.jsp"%>
-	<section>
-	<h3>운영자에게 메일 보내기</h3>
+	<section class="sendToAdminBoxSection">
+	<h3 class="sendToAdminTitle">운영자에게 메일 보내기</h3>
 		<form method="post">
-		<div>
+		<div class="allInputBoxDiv">
+			<div class="addrInputBoxDiv">
 			<label>나의 이메일 주소: </label>
 			<input name="from_email">
-		</div>
-		<div>
+			</div>
+			
+			<div class="addrInputBoxDiv" style="float:right;">
 			<label>제목: </label>
 			<input name="subject">
+			</div>
 		</div>
+		
 		<div>
 			<textarea name="content" cols="100" rows="10"></textarea>
 		</div>
