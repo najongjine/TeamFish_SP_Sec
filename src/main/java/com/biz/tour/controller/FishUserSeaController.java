@@ -190,6 +190,7 @@ public class FishUserSeaController {
 
 	// FishUserSeaVO 글 삭제 + sub table 들 cascade delete 구현필요
 
+	@Secured(value = {"ROLE_ADMIN","ROLE_USER"})
 	@RequestMapping(value = "/view", method = RequestMethod.GET)
 	public String view(FishUserSeaCommentVO commentVO,@RequestParam("uf_id") String strUf_id, Model model) {
 		MemberVO memberVO=(MemberVO) SecurityContextHolder
