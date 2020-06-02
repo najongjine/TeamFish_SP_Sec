@@ -32,7 +32,7 @@ font-weight: bold;
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
 <script type="text/javascript">
-var socket = new SockJS('http://localhost:8080/socket/chat');
+var socket = new SockJS('http://localhost:8080/tour/chat');
 //소켓 서버에 접속 시작
 socket.onopen = function() {
 	// 소켓이 서버에 접속이 성공한 다음 최초에 실행될 코드
@@ -55,6 +55,7 @@ socket.onmessage = function(e) {
     
     //msg 라는 key 있냐?
     if(mJson.msg&&mJson.msg=='userName'){
+    	//보내는 사람(나) username 표시하는 부분
     	$("#userName").val(mJson.userName)
     	$("#userName").prop("readonly",true)
     	return false
@@ -158,7 +159,7 @@ $(function() {
 <section class="container-fluid">
 <form>
 <div class="form-group">
-<label for="userName">FROM</label>
+<label for="userName">보내는사람</label>
 <input id="userName" class="form-control" value="${U_NAME }" placeholder="보내는 사람" readonly="readonly"><br/>
 </div>
 
