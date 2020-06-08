@@ -107,11 +107,7 @@
 		<form method="get" class="form-group">
 			<label for="searchOption">검색</label> <select name="searchOption">
 				<option value="titleSearch">제목으로 검색</option>
-<<<<<<< HEAD
 			</select> <input name="inputStr" placeholder="검색할 단어를 입력하세요">
-=======
-			</select> <input name="inputStr" class="form-control" placeholder="검색할 단어를 입력하세요">
->>>>>>> 580b85eb0f87f988c67152e686b001cec9e8ee48
 			<button type="button" id="userSearch" class="btn btn-outline-success">검색</button>
 		</form>
 		<br />
