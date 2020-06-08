@@ -14,7 +14,7 @@ text-align: center;
 }
 
 .mypage{
-width: 500px;
+width: 650px;
 border: 2px solid blue;
 }
 
@@ -35,7 +35,7 @@ margin-right: 0;
 
 <section class="container mypage">
 <h2>회원정보</h2>
-	<div class="my-info">
+	<div class="my-info d-inline-flex justify-content-center">
 		<form:form modelAttribute="memberVO" method="GET" class="list-group">
 		
 			<div class="list-group-item list-group-item-primary">
@@ -71,6 +71,10 @@ margin-right: 0;
 			</div>
 			
 		</form:form>
+		
+		<div class="">
+			<img width="280px" src="${rootPath}/files/${memberVO.profile_pic}">
+		</div>
 	</div>
 </section>
 

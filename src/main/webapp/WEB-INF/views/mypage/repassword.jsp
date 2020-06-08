@@ -35,16 +35,10 @@ margin-top: 10px;
 </head>
 <script>
 $(document).ready(function() {
-	$(document).on("click","#btn-join",function(){
-		let username=$("#username")
+	$(document).on("click","#changepw",function(){
 		let password=$("#password")
 		let re_password=$("#re_password")
 		
-		if(username.val()==""){
-			alert("아이디를 입력하세요")
-			username.focus()
-			return false
-		}
 		if(password.val()==""){
 			alert("비밀번호를 입력하세요")
 			password.focus()
@@ -76,15 +70,15 @@ $(document).ready(function() {
 			
 			<div class="list-group-item list-group-item-info">
 			<label for="password">비밀번호 : </label>
-			<form:input path="password" placeholder="비밀번호 입력" class="my-text"/>
+			<form:input path="password" placeholder="비밀번호 입력" class="my-text" type="password"/>
 			</div>
 			
 			<div class="list-group-item list-group-item-info">
 			<label for="re_password">비밀번호 재입력 : </label>
-			<input id="re_password" name="re_password" placeholder="비밀번호 재입력" class="my-text"/>
+			<input id="re_password" name="re_password" placeholder="비밀번호 재입력" class="my-text" type="password"/>
 			</div>
 			
-			<button class="btn btn-success">비밀번호 변경</button>
+			<button id="changepw" type="button" class="btn btn-success">비밀번호 변경</button>
 			
 		</form:form>
 	</div>

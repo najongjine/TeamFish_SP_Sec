@@ -105,11 +105,11 @@ public class MemberController {
 	// email로 ID찾기,비번 재설정을 하기위한 email 입력 페이지
 	@RequestMapping(value="/findID",method=RequestMethod.GET)
 	public String findID(@ModelAttribute("memberVO") MemberVO memberVO) {
-		memberVO=(MemberVO) SecurityContextHolder
-				.getContext()
-				.getAuthentication()
-				.getPrincipal();
-		if(memberVO==null ) return null;
+//		memberVO=(MemberVO) SecurityContextHolder
+//				.getContext()
+//				.getAuthentication()
+//				.getPrincipal();
+//		if(memberVO==null ) return null;
 		//memService.findByIdresetpass(email);
 		return "member/repass_email";
 	}

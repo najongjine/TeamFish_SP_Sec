@@ -246,8 +246,11 @@ public class MemberServiceImp implements MemberService {
 
 		boolean bKey = PbeEncryptor.getDecrypt(secret_key).equals(secret_value);
 
-		log.debug("인증키  key : ", secret_key);
-		log.debug("인증키 value : ", secret_value);
+//		String decrypt_seckey = PbeEncryptor.getDecrypt(secret_key);
+//		
+//		log.debug("인증키  key : " + secret_key);
+//		log.debug("인증키 디크립트 key : " + decrypt_seckey);
+//		log.debug("인증키 value : " + secret_value);
 
 		if (bKey) {
 			log.debug("이메일  : " + email);
@@ -255,15 +258,19 @@ public class MemberServiceImp implements MemberService {
 			MemberVO memberVO = memDao.findByUserEmail(email);
 
 			memberVO.setEnabled(true);
-			update(memberVO);
+//			update(memberVO);
+			memDao.update(memberVO);
+			return bKey;
 		}
 
-		return bKey;
+//		return bKey;
+		return false;
 	}
 
 	/*
-	 * ID찾기,비번 재설정에서 이메일 인증을 완료하고 id와 비번재설정을 위한 메서드 email로 db를 검색해서 vo에 담은 다음 비번은 널로
-	 * 재설정 후 리턴
+	 * ID찾기,비번 재설정에서 이메일 인증을 완료하고
+	 * id와 비번재설정을 위한 메서드 email로 db를
+	 * 검색해서 vo에 담은 다음 비번은 널로 재설정 후 리턴
 	 */
 	@Override
 	public MemberVO findByIdresetpass(MemberVO memberVO) {
@@ -279,12 +286,16 @@ public class MemberServiceImp implements MemberService {
 	public int re_member_join(MemberVO memberVO) {
 
 		log.debug("암호화 하기 전 비번 : " + memberVO.getPassword());
+		// 변경할 비밀번호를 암호화 해서 encPassword에 셋팅
 		String encPassword = passwordEncoder.encode(memberVO.getPassword());
+		// memberVO에 암호화한 encPassword를 셋팅
 		memberVO.setPassword(encPassword);
 		log.debug("암호화 후 비번 : " + memberVO.getPassword());
+		// memberVO enabled를 true로 변경 후 셋팅(혹시 false이거나 할 경우를 위해 이부분은 확인 필요)
 		memberVO.setEnabled(true);
+		// memDao 에 업데이트 후 
 		int ret = memDao.re_update(memberVO);
-
+		// 컨트롤러로 리턴
 		return ret;
 	}
 

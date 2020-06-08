@@ -24,14 +24,18 @@ $(function() {
 	
 })
 </script>
-
+<style>
+.body{
+border: 1px solid gray;
+}
+</style>
 <br/>
 <hr/>
-<section>
+<section class="body">
 <c:choose>
 	<c:when test="${commentList!=null}">
 		<c:forEach items="${commentList}" var="vo">
-		<section class="preply" id="${vo.ufc_id }" data-ufc_pid="${vo.ufc_id }" data-ufc_fk="${vo.ufc_fk }">
+		<section class="preply d-flex" id="${vo.ufc_id }" data-ufc_pid="${vo.ufc_id }" data-ufc_fk="${vo.ufc_fk }">
 		id-${vo.ufc_id }, pid-${vo.ufc_pid } usr-${vo.ufc_username } : text-${vo.ufc_text }
 		
 		</section>
