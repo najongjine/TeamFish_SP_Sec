@@ -57,7 +57,9 @@ public class UserWaterCommentServiceImp implements UserWaterCommentService{
 			for(int i=0;i<depth;i++) {
 				c_header+=" re: ";
 			}
-			String moddedText=c_header+cmtVO.getUfc_text();
+			String rawText=cmtVO.getUfc_text();
+	         String exclStartPTag=rawText.substring(3);
+	         String moddedText="<p>"+c_header+exclStartPTag;
 			cmtVO.setUfc_text(moddedText);
 		}
 		// 매개 변수로 받은 댓글vo(부모)vo를 list에 먼저 추가 시켜줌

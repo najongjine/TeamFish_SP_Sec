@@ -26,8 +26,8 @@ $(function() {
 </script>
 <style>
 .body{
-<<<<<<< HEAD
 border: 2px solid gray;
+
 }
 .replyreplyAtc{
 border-bottom: 1px solid gray;
@@ -35,44 +35,39 @@ border-bottom: 1px solid gray;
 .for-coment{
 background-color: #e6e9ed;
 }
+.ufc-username{
+width: 15%;
+}
+.ufc-text{
+width: 85%;
+background-color: #f5f5f5;
+}
 .preply{
-margin-top: 5px;
 margin-left: 10px;
-
+}
+#d-flex{
+display: flex;
 }
 </style>
 
-=======
-border: 1px solid gray;
-}
-</style>
->>>>>>> 65b58c37ebb9c0d8c39ad3bd4718a1813428faff
 <br/>
 <hr/>
 <section class="body">
 <c:choose>
 	<c:when test="${commentList!=null}">
-		<c:forEach items="${commentList}" var="vo">
-<<<<<<< HEAD
 		<div class="for-coment">
-			<section class="preply d-flex" id="${vo.ufc_id }" data-ufc_pid="${vo.ufc_id }" data-ufc_fk="${vo.ufc_fk }">
-			id-${vo.ufc_id }, pid-${vo.ufc_pid } usr-${vo.ufc_username } : text-${vo.ufc_text }
-			
+		<c:forEach items="${commentList}" var="vo">
+			<section class="preply" id="${vo.ufc_id }" data-ufc_pid="${vo.ufc_id }" data-ufc_fk="${vo.ufc_fk }">
+				<div id="d-flex">
+					<div class="ufc-username p-2 flex-fill">id-${vo.ufc_id }, pid-${vo.ufc_pid } usr-${vo.ufc_username }</div>
+					<div class="ufc-text p-2 flex-fill">${vo.ufc_text }</div>
+				</div>
 			</section>
-			<article id="${vo.ufc_id }a" class="replyreplyAtc">
+			<article id="${vo.ufc_id }a" class="replyreplyAtc" >
 			
 			</article>
-		</div>
-=======
-		<section class="preply d-flex" id="${vo.ufc_id }" data-ufc_pid="${vo.ufc_id }" data-ufc_fk="${vo.ufc_fk }">
-		id-${vo.ufc_id }, pid-${vo.ufc_pid } usr-${vo.ufc_username } : text-${vo.ufc_text }
-		
-		</section>
-		<article id="${vo.ufc_id }a" class="replyreplyAtc">
-		
-		</article>
->>>>>>> 65b58c37ebb9c0d8c39ad3bd4718a1813428faff
 		</c:forEach>
+		</div>
 	</c:when>
 </c:choose>
 </section>
