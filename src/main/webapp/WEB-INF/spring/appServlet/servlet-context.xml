@@ -15,6 +15,7 @@
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/resources/**" location="/resources/" />
 	<resources mapping="/js/**" location="/js/" />
+	<resources mapping="/images/**" location="/images/" />
 	<!-- 이 부분은 컨트롤러 이름과 겹치면 안됨. 주소로 접속 가능한 경로임. -->
 	<resources mapping="/files/**" location="file:///C:/BizWork/files/,/files/" />
 	

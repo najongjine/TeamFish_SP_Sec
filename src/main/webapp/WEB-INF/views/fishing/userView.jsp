@@ -194,9 +194,6 @@ $(function() {
 	<hr/>
 	<form:form action="?${_csrf.parameterName}=${_csrf.token }" method="post" id="pcomment" modelAttribute="commentVO">
 	<p>
-		<form:input path="ufc_fk" type="readonly"/>
-	</p>
-	<p>
 		<b>comment: </b>
 		<form:textarea  class="summernote" path="ufc_text" rows="" cols=""></form:textarea>
 	</p>
