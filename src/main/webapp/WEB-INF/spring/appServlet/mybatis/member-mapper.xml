@@ -50,7 +50,6 @@
 		SET
 		`username` = #{username},
 		`password` = #{password},
-		`u_role` = #{u_role},
 		`email` = #{email},
 		`phone` = #{phone},
 		`address` = #{address},

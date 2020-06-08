@@ -29,7 +29,7 @@ border: 1px solid red;
 }
 
 .input-username{
-margin-left: 10px;
+/* margin-left: 10px; */
 }
 
 .btn{
@@ -47,10 +47,10 @@ font-size: 0.3rem;
 
 .view_pass{
 margin-top: 10px;
-margin-left: 10px;
+/* margin-left: 10px; */
 }
 .re_view_pass{
-margin-left: 10px;
+/* margin-left: 10px; */
 }
 
 </style>
@@ -106,7 +106,7 @@ $(function(){
 			// 가상의 input 생성
 			// <input type='text' class='view_pass form-control' id='password' name='password'>
 			// 또는 <input type='password' class='view_pass form-control' id='password' name='password'>
-			let ref = $("<input type='" + change + "' class='view_pass form-control' id='password' name='password'/>")
+			let ref = $("<input type='" + change + "' class='view_pass form-control' id='password' name='password' placeholder='비밀번호'/>")
 			.val(input_ref.val())
 			.insertBefore(input_ref);
 			
@@ -125,7 +125,7 @@ $(function(){
 			// 가상의 input 생성
 			// <input type='text' class='re_view_pass form-control' id='re_password' name='re_password'>
 			// 또는 <input type='password' class='re_view_pass form-control' id='re_password' name='re_password'>
-			let ref = $("<input type='" + change + "' class='re_view_pass form-control' id='re_password' name='re_password' />")
+			let ref = $("<input type='" + change + "' class='re_view_pass form-control' id='re_password' name='re_password' placeholder='비밀번호 확인'/>")
 			.val(input_ref.val())
 			.insertBefore(input_ref);
 			
@@ -155,7 +155,7 @@ $(function(){
 				 <form:input type="password" class="view_pass form-control"
 					path="password" placeholder="비밀번호"/><br>
 				<input type="password" class="re_view_pass form-control"
-				id="re_password" name="re_password"	placeholder="비밀번호 확인">
+				id="re_password" name="re_password"	placeholder="비밀번호 확인"><br>
 				
 				<form:input type="email" class="form-control"
 					path="email" readonly="true" placeholder="E-mail"/><br>

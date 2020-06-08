@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<c:set var="rootPath" value="${pageContext.request.contextPath }"/>
+<c:set var="rootPath" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,8 +41,14 @@ $(function() {
 				secret_value:secret_value
 			},
 			success:function(result){
+			/* 6월4일 버그 수정 if 랑 else 추가
+			이거 없으면 인증코드 잘못 입력해도 FAIL 리턴되긴 하는데 비번 변경 페이지로 넘어가짐 */
+				if(result=="OK"){
 				alert(result)
 				document.location.replace("${rootPath}/member/re_join")
+				} else {
+				alert(result+"\n"+"인증코드를 잘못 입력하였습니다")
+				}
 			},
 			error:function(){
 				alert("서버통신오류")
@@ -58,7 +64,7 @@ $(function() {
 <h2>Email 인증</h2>
 <div>ID찾기/비밀번호를 변경하려면 E-mail 인증을 완료해야 합니다</div>
 <p>
-<form:form action="${rootPath }/member/findID" method="post" modelAttribute="memberVO" class="form-group">
+<form:form action="${rootPath}/member/findID" method="post" modelAttribute="memberVO" class="form-group">
 	<div class="form-group">
 	<form:input path="email" type="email" placeholder="email"/>
 	</div>
