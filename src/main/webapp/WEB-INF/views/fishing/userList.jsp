@@ -101,15 +101,14 @@
 </script>
 
 <body>
-	<p>mode:${MODE }</p>
 	<h4 class="userListTitle">User Fishing Spot</h4>
 	<br />
 	<section class="userSearch">
-		<form method="get">
+		<form method="get" class="form-group">
 			<label for="searchOption">검색</label> <select name="searchOption">
 				<option value="titleSearch">제목으로 검색</option>
-			</select> <input name="inputStr">
-			<button type="button" id="userSearch">검색</button>
+			</select> <input name="inputStr" class="form-control" placeholder="검색할 단어를 입력하세요">
+			<button type="button" id="userSearch" class="btn btn-outline-success">검색</button>
 		</form>
 		<br />
 
