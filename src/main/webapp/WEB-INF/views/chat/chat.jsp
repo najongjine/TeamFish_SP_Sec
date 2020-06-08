@@ -37,7 +37,6 @@ var socket = new SockJS('http://localhost:8080/tour/chat');
 socket.onopen = function() {
 	// 소켓이 서버에 접속이 성공한 다음 최초에 실행될 코드
 	let userName=$("#userName").val()
-	alert(userName)
 	console.log("!!! username: ",userName)
 	if(userName && userName!=""){
 		socket.send("userName:"+userName)
@@ -147,6 +146,7 @@ $(function() {
 </script>
 </head>
 <body>
+<%@ include file="/WEB-INF/views/include/include-header.jsp"%>
 <header class="jumbotron bg-success">
 <h2 class="text-white text-center">My Chat Service</h2>
 </header>

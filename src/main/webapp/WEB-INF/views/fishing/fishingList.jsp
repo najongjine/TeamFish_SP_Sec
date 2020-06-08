@@ -38,21 +38,35 @@ $(function() {
 	<%@ include file="/WEB-INF/views/include/include-header.jsp"%>
 	<c:if test="${MODE=='water' }">
 	<section class="apiSearch">
-		<form method="get" action="${rootPath }/fish/water">
+		<form method="get" action="${rootPath }/fish/water" class="form-group">
 			<label for="searchOption">검색</label> <select name="searchOption">
 				<option value="titleSearch">제목으로 검색</option>
+<<<<<<< HEAD
 			</select> <input name="inputStr" placeholder="검색할 단어를 입력하세요">
 			<button id="userSearch" class="btn btn-outline-success">검색</button>
+=======
+
+			</select> <input name="inputStr">
+			<button id="userSearch">검색</button>
+
+			</select> <input name="inputStr" class="form-control" placeholder="검색할 단어를 입력하세요">
+			<button id="userSearch" class="btn btn-outline-success">검색</button>
+
+>>>>>>> 580b85eb0f87f988c67152e686b001cec9e8ee48
 		</form>
 		<br />
 	</section>
 	</c:if>
 	<c:if test="${MODE=='sea' }">
 	<section class="apiSearch">
-		<form method="get" action="${rootPath }/fish/sea">
+		<form method="get" action="${rootPath }/fish/sea" class="form-group">
 			<label for="searchOption">검색</label> <select name="searchOption">
 				<option value="titleSearch">제목으로 검색</option>
+<<<<<<< HEAD
 			</select> <input name="inputStr" placeholder="검색할 단어를 입력하세요">
+=======
+			</select> <input name="inputStr" class="form-control" placeholder="검색할 단어를 입력하세요">
+>>>>>>> 580b85eb0f87f988c67152e686b001cec9e8ee48
 			<button id="userSearch" class="btn btn-outline-success">검색</button>
 		</form>
 		<br />
