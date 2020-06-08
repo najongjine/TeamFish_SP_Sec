@@ -42,7 +42,7 @@ $(function() {
 			<label for="searchOption">검색</label> <select name="searchOption">
 				<option value="titleSearch">제목으로 검색</option>
 			</select> <input name="inputStr">
-			<button id="userSearch">검색 dummy</button>
+			<button id="userSearch">검색</button>
 		</form>
 		<br />
 	</section>
