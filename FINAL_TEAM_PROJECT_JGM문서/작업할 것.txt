@@ -151,7 +151,7 @@ index 0 ~ 93
 수정된 클래스
 MarineLifeAPIController
 marine_detail.jsp
-pom.xml에서 spring-websocket 추가
+
 servlet-context namespace에서 websocket bean추가 후 bean에 echohandler class 
 com.biz.tour 패키지에 EchoHandler class 추가
 (include 폴더에 socket-chat.jsp 추가하고 fishMain에서 include)
