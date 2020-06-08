@@ -115,7 +115,7 @@ public class MyPageController {
 	@Secured(value = {"ROLE_ADMIN","ROLE_USER"})
 	@RequestMapping(value = "/changepassword",method=RequestMethod.GET)
 	public String changePassword(MemberVO memberVO) {
-		memberVO=(MemberVO) SecurityContextHolder
+		memberVO = (MemberVO) SecurityContextHolder
 				.getContext()
 				.getAuthentication()
 				.getPrincipal();
