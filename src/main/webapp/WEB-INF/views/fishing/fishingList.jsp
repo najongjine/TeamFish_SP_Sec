@@ -41,8 +41,13 @@ $(function() {
 		<form method="get" action="${rootPath }/fish/water" class="form-group">
 			<label for="searchOption">검색</label> <select name="searchOption">
 				<option value="titleSearch">제목으로 검색</option>
+
+			</select> <input name="inputStr">
+			<button id="userSearch">검색</button>
+
 			</select> <input name="inputStr" class="form-control" placeholder="검색할 단어를 입력하세요">
 			<button id="userSearch" class="btn btn-outline-success">검색</button>
+
 		</form>
 		<br />
 	</section>
