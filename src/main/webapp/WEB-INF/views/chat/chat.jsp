@@ -147,9 +147,9 @@ $(function() {
 </head>
 <body>
 <%@ include file="/WEB-INF/views/include/include-header.jsp"%>
-<header class="jumbotron bg-success">
-<h2 class="text-white text-center">My Chat Service</h2>
-</header>
+<section class="jumbotron" style="background-image: url('${rootPath }/images/chat background image.webp') ">
+<h2 class="text-white text-center">Fishing Chatting</h2>
+</section>
 
 <section class="container-fluid">
 <div id="message_list">

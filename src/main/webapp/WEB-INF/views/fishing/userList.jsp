@@ -101,7 +101,8 @@
 </script>
 
 <body>
-	<h4 class="userListTitle">User Fishing Spot</h4>
+<section style="background-image: url('${rootPath }/images/userFishPageBackground.jpg')">
+	<h4 class="userListTitle text-center">User Fishing Spot</h4>
 	<br />
 	<section class="userSearch">
 		<form method="get" class="form-group">
@@ -153,6 +154,7 @@
 	<section class="pagi">
 		<%@ include file="/WEB-INF/views/include/userListPagi.jsp" %>
 	</section>
+</section>
 	<%@ include file="/WEB-INF/views/chatbot.jspf" %>
 </body>
 </html>
